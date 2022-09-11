@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<JWM>
+    <!-- The root menu. -->
+    <RootMenu onroot="12">
+        <Program label="Terminal">alacritty</Program>
+        <Menu label="Utilities">
+            <Program label="Thunar">thunar</Program>
+            <Program label="Nitrogen">nitrogen</Program>
+        </Menu>
+        <Menu label="Write">
+            <Program label="LibreOffice">libreoffic</Program>
+            <Program label="Ghostwriter">ghostwriter</Program>
+        </Menu>
+        <Menu label="Web">
+            <Program label="Qutebrowser">qutebrowser</Program>
+            <Program label="Firefox">firefox</Program>
+        </Menu>
+        <Menu label="Dev">
+            <Program label="VScode">vscode</Program>
+            <Program label="Arduino IDE">arduino</Program>
+        </Menu>
+        <Separator/>
+        <Restart label="Reload jwm"/>
+	<Exit label="Log Out" confirm="true" icon="exit"/>
+    </RootMenu>
+
+    <!-- Tray at the top. -->
+    <Tray x="0" y="+0" height="22" autohide="off" delay="1000">
+	<TrayButton label="[%%]">root:1</TrayButton>
+	<Font>terminus-10</Font>
+        <Spacer width="2"/>
+        <Pager labeled="true"/>
+        <TaskList maxwidth="256"/>
+        <Dock/>
+        <Clock format="%l:%M %p"><Button mask="123">exec:libxclock.so -bg '#C5DAE8' -name Clock -update 1</Button></Clock>
+        <TrayButton popup="Show Desktop" label="[#]">showdesktop</TrayButton>
+    </Tray>
+
+    <!-- Visual Styles -->
+    <WindowStyle decorations="flat">
+	<Width>2</Width>
+	<Corner>0</Corner>
+        <Background>#141E1F</Background>
+        <Opacity>0.5</Opacity>
+        <Active>
+            <Foreground>#000000</Foreground>
+            <Background>#75A1A3</Background>
+            <Opacity>1.0</Opacity>
+        </Active>
+    </WindowStyle>
+    <TrayStyle decorations="flat">
+	<Font>terminus-10</Font>
+        <Background>#0A0F0F</Background>
+        <Foreground>#FFFFFF</Foreground>
+        <Opacity>0.75</Opacity>
+    </TrayStyle>
+    <TaskListStyle list="all" group="true">
+      <Active>
+        <Foreground>#000000</Foreground>
+        <Background>#75A1A3</Background>
+      </Active>
+      <Foreground>#FFFFFF</Foreground>
+      <Background>#0A0F0F</Background>
+    </TaskListStyle>
+    <PagerStyle>
+        <Foreground>#555555</Foreground>
+        <Background>#52787A</Background>
+        <Text>#FFFFFF</Text>
+        <Active>
+            <Foreground>#FFFFFF</Foreground>
+            <Background>#857469</Background>
+        </Active>
+    </PagerStyle>
+    <MenuStyle decorations="flat">
+	<Font>Terminus-10</Font>
+        <Foreground>#FFFFFF</Foreground>
+        <Background>#0A0F0F</Background>
+        <Active>
+            <Foreground>#FFFFFF</Foreground>
+            <Background>#0077CC</Background>
+        </Active>
+        <Opacity>0.85</Opacity>
+    </MenuStyle>
+    <PopupStyle>
+        <Foreground>#000000</Foreground>
+        <Background>#999999</Background>
+    </PopupStyle>
+    <IconPath>/data/user/0/searemind.xhaskell/app_HOME/.lib/xserver/share/conf/jwm</IconPath>
+    <!-- Virtual Desktops -->
+    <!-- Desktop tags can be contained within Desktops for desktop names. -->
+    <Desktops width="6" height="1">
+        <!-- Default bs 00:00 [###########ackground. Note that a Background tag can be
+              contained within a Desktop tag to give a specific background
+              for that desktop.
+         -->
+    </Desktops>
+    <!-- Double click speed (in milliseconds) -->
+    <DoubleClickSpeed>400</DoubleClickSpeed>
+    <!-- Double click delta (in pixels) -->
+    <DoubleClickDelta>2</DoubleClickDelta>
+    <!-- The focus model (sloppy or click) -->
+    <FocusModel>click</FocusModel>
+    <!-- The snap mode (none, screen, or border) -->
+    <SnapMode distance="10">border</SnapMode>
+    <!-- The move mode (outline or opaque) -->
+    <MoveMode>opaque</MoveMode>
+    <!-- The resize mode (outline or opaque) -->
+    <ResizeMode>opaque</ResizeMode>
+    <!-- Key bindings -->
+    <Key key="Up">up</Key>
+    <Key key="Down">down</Key>
+    <Key key="Right">right</Key>
+    <Key key="Left">left</Key>
+    <Key key="h">left</Key>
+    <Key key="j">down</Key>
+    <Key key="k">up</Key>
+    <Key key="l">right</Key>
+    
+    <Key mask="A" key="Tab">nextstacked</Key>
+    <Key mask="4" key="w">close</Key>
+    <Key mask="4" key="#">desktop#</Key>
+
+    <Key mask="A" key="F1">root:1</Key>
+    <Key mask="A" key="F2">window</Key>
+
+    <Key mask="4" key="f">maximize</Key>
+    <Key mask="4" key="l">rdesktop</Key>
+    <Key mask="4" key="h">ldesktop</Key>
+
+    <Key mask="4" key="d">exec:dmenu_run</Key>
+    <Key mask="4" key="Return">exec:alacritty</Key>
+    <Key mask="CA" key="p">exec:flameshot gui</Key>
+
+    <!-- Mouse bindings -->
+    <Mouse context="root" button="4">ldesktop</Mouse>
+    <Mouse context="root" button="5">rdesktop</Mouse>
+    <Mouse context="title" button="1">move</Mouse>
+    <Mouse context="title" button="2">move</Mouse>
+    <Mouse context="title" button="3">window</Mouse>
+    <Mouse context="title" button="4">shade</Mouse>
+    <Mouse context="title" button="5">shade</Mouse>
+    <Mouse context="title" button="11">maximize</Mouse>
+    <Mouse context="icon" button="1">window</Mouse>
+    <Mouse context="icon" button="2">move</Mouse>
+    <Mouse context="icon" button="3">window</Mouse>
+    <Mouse context="icon" button="4">shade</Mouse>
+    <Mouse context="icon" button="5">shade</Mouse>
+    <Mouse context="border" button="1">resize</Mouse>
+    <Mouse context="border" button="2">move</Mouse>
+    <Mouse context="border" button="3">window</Mouse>
+    <Mouse context="close" button="-1">close</Mouse>
+    <Mouse context="close" button="2">move</Mouse>
+    <Mouse context="close" button="-3">close</Mouse>
+    <Mouse context="maximize" button="-1">maximize</Mouse>
+    <Mouse context="maximize" button="-2">maxv</Mouse>
+    <Mouse context="maximize" button="-3">maxh</Mouse>
+    <Mouse context="minimize" button="-1">minimize</Mouse>
+    <Mouse context="minimize" button="2">move</Mouse>
+    <Mouse context="minimize" button="-3">shade</Mouse>
+
+    <StartupCommand>
+	nitrogen --restore &
+
+    </StartupCommand>
+
+</JWM>
